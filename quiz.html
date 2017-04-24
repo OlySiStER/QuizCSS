@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper deep-orange darken-1">
+                <!-- <a href="#" class="brand-logo"> &nbsp Logo</a> -->
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" class="brand-logo"> &nbsp&nbsp&nbsp<img src="img/OlyLogoDrop.png" alt="logo"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="quiz.html">SIGN IN</a></li>
+
+                </ul>
+                <ul class="side-nav deep-orange darken-1" id="mobile-demo">
+                    <li><a href="quiz.html">SIGN IN</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <div class="card-panel teal lighten-2 deep-orange darken-1"><h5><center>Quiz lab CSS 15% 24/04/60 </center></h5></div> <br>
+
+        <br>
+        <div class="row">
+            <form class="col s12">
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" type="text" class="validate">
+                        <label for="email"><i class="material-icons right">perm_identity</i>Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password"><i class="material-icons right">dialpad</i>Password</label>
+                    </div>
+                </div>
+
+                <a class="waves-effect waves-light btn deep-orange darken-1" id="signin"><i class="material-icons right">send</i>SIGN IN</a>
+            </form>
+        </div>
+        <div class="card-panel teal lighten-2 deep-orange darken-1"><h5><center>Suphachok Noopan 5730211009</center></h5></div> <br>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+        //sidebar menu for min-desktop
+        $(".button-collapse").sideNav();
+
+        $("#signin").click(function() {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            // console.log(username);
+            // console.log(password);
+            var url = "http://membershipwebapi977290.azurewebsites.net/api/members/signin?username=" + username + "&password=" + password;
+            $.get(url, function(data, status) {
+                // console.log("URL : " + data);
+                console.log("Sign in :  " + data.Status);
+            });
+        });
+    </script>
+</body>
+
+</html>
